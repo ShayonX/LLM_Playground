@@ -1,0 +1,57 @@
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bubbleAnimation {
+    animation: slideFadeIn 300ms forwards;
+}
+
+.highlight-link {
+    background-color: white;
+    color: #00328f; /* Adjust text color */
+    padding: 2px 4px; /* Optional padding */
+    border-radius: 4px; /* Optional rounded corners */
+    text-decoration: none; /* Remove underline */
+}
+
+/* PDF Attachment Styling */
+.pdf-attachment {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.pdf-attachment:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.pdf-attachment .pdf-icon {
+    font-size: 16px;
+}
+
+.pdf-attachment .pdf-name {
+    font-size: 14px;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pdf-attachment .pdf-action {
+    font-size: 12px;
+    opacity: 0.8;
+}

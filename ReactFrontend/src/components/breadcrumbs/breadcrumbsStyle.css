@@ -1,0 +1,68 @@
+.breadcrumbs-row {
+    align-items: flex-start;
+    display: inline-flex;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.breadcrumbs-row .breadcrumbs-item-instance {
+    flex: 0 0 auto !important;
+}
+
+.title-style {
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.PH-breadcrumb {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.PH-breadcrumb .breadcrumbs-row-instance {
+    left: -9px !important;
+    top: -12px !important;
+}
+
+.PH-breadcrumb.forty-eight-px {
+    height: 60px;
+}
+
+.PH-breadcrumb.twenty-four-px {
+    height: 36px;
+}
+
+.PH-breadcrumb.thirty-two-px {
+    height: 44px;
+}
+
+/* Responsive styles for breadcrumbs */
+@media (max-width: 768px) {
+    .title-style {
+        font-size: 24px;
+    }
+
+    .breadcrumbs-row {
+        flex-wrap: wrap;
+    }
+
+    .PH-breadcrumb {
+        padding: 0 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title-style {
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,481 @@
+/* Global styles to prevent unnecessary scrollbars */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden; /* Prevent horizontal scrollbars */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000; /* Keep header above other content */
+    height: 48px; /* Fixed header height */
+}
+
+.leftNav {
+    position: fixed;
+    top: 48px; /* Based on the height of your header */
+    left: 0;
+    z-index: 999; /* Keep left nav just below header but above main content */
+    transition: width 0.3s ease; /* Smooth transition when width changes */
+}
+
+.outer-flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrollbars on main container */
+}
+
+.vertical-items {
+    display: flex;
+    flex-direction: column;
+    margin-top: 48px; /* This is the height of the header */
+    height: calc(100vh - 48px); /* Full height minus header */
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+.horizontal-items {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Prevent horizontal overflow */
+}
+
+.main-content-vertical-items {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 24px; /* Reduced padding to prevent horizontal overflow */
+    flex: 1;
+    overflow: hidden; /* Prevent scrollbars */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.breadcrumbs {
+    flex: 0 0 auto; /* Don't grow or shrink */
+    overflow: hidden; /* Prevent scrollbars */
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.breadcrumbs .main-contents {
+    color: var(--bodybody-text);
+    flex: 1;
+    font-family: "Segoe UI-Bold", Helvetica;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-top: -1px;
+    position: relative;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(
+        100vh - 140px
+    ); /* Adjust based on header height and breadcrumbs */
+    width: 100%;
+    margin-top: 20px;
+    overflow: hidden; /* Prevent scrollbars on container */
+    box-sizing: border-box;
+}
+
+.chat-messages {
+    flex: 0.9; /* 90% of the available height */
+    overflow-y: auto;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.chat-input-container {
+    flex: 0 0 auto; /* Don't grow or shrink, fixed size */
+    min-height: 60px;
+    border-top: 1px solid #eaeaea;
+    padding: 10px 0;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.chatBubble {
+    margin-top: 0;
+    max-width: 100%;
+    overflow-y: visible;
+}
+
+.messageTextField {
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#messageText {
+    border-radius: 15px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light border */
+    padding: 10px 15px; /* Padding for comfort */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Add subtle shadow */
+}
+
+#messageText:focus {
+    border-color: #b7d7f04a; /* Change border color on focus to match the color scheme */
+    outline: none; /* Remove the default outline */
+    box-shadow: 0 0 0 3px rgba(0, 35, 58, 0.311); /* Add a glow effect on focus */
+}
+
+.messageSendButton {
+    margin-top: 20px;
+    width: 100%;
+    align-self: flex-end;
+    box-sizing: border-box;
+}
+
+.messageTextField {
+    border-radius: 15px; /* Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Add subtle shadow */
+}
+
+.messageSendButton .ms-Button {
+    border-radius: 15px; /* Rounded corners for the button */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    transition: box-shadow 0.3s, transform 0.3s; /* Transition for a smooth effect */
+}
+
+.messageSendButton .ms-Button:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+}
+
+.messageSendButton .ms-Button:active {
+    transform: scale(
+        0.98
+    ); /* Slightly scale down the button on click for a pressing effect */
+}
+
+.messageControls {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    max-width: 100%;
+}
+
+.messageControls .ms-IconButton {
+    margin-right: 10px;
+    background-color: #0078d4;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.messageControls .ms-IconButton:hover {
+    background-color: #005a9e;
+}
+
+.messageControls .ms-TextField {
+    flex: 1;
+    margin-right: 10px;
+}
+
+@keyframes dotPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.dot-loading {
+    display: inline-block;
+    margin-right: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #0078d4; /* You can change this color to your preference */
+    animation: dotPulse 0.5s infinite alternate;
+}
+
+.dot-loading:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot-loading:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.transitionAnimation {
+    animation: slideFadeIn 300ms forwards;
+}
+
+/* Waveform Animation */
+.waveform-animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    margin-left: 40%;
+}
+
+.waveform-bar {
+    width: 5px;
+    height: 100%;
+    background-color: #0078d4;
+    margin: 0 2px;
+    animation: wave 1s infinite ease-in-out;
+}
+
+.waveform-bar:nth-child(2) {
+    animation-delay: -0.9s;
+}
+
+.waveform-bar:nth-child(3) {
+    animation-delay: -0.8s;
+}
+
+.waveform-bar:nth-child(4) {
+    animation-delay: -0.7s;
+}
+
+.waveform-bar:nth-child(5) {
+    animation-delay: -0.6s;
+}
+
+@keyframes wave {
+    0%,
+    40%,
+    100% {
+        transform: scaleY(0.3);
+    }
+    20% {
+        transform: scaleY(1);
+    }
+}
+
+/* Stop Narration Button Styles */
+.stopNarrationButtonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.stopNarrationButton {
+    box-shadow: 0 0 10px rgba(212, 0, 0, 0.5); /* Faint glow */
+    animation: glow 1.5s infinite alternate;
+    border-radius: 30px;
+    background-color: #d40000;
+    color: white;
+    border: none;
+}
+
+.stopNarrationButton:hover {
+    background-color: #9e0000;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px rgba(212, 0, 0, 0.5);
+    }
+    to {
+        box-shadow: 0 0 15px rgba(212, 0, 0, 0.8);
+    }
+}
+
+/* File Upload Styles */
+.selected-file-display {
+    display: flex;
+    align-items: center;
+    background-color: #f3f2f1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    max-width: 300px;
+}
+
+.file-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    color: #323130;
+}
+
+.messageControls {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.messageControls .input-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+/* Chain of Thought (CoT) Reasoning Styles */
+.cot-reasoning-label {
+    font-size: 0.8em;
+    color: #ffa500;
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.cot-reasoning-bubble {
+    background: linear-gradient(135deg, #ffa500, #ff8c00) !important;
+    border-radius: 10px !important;
+    border-left: 4px solid #ff6347;
+    opacity: 0.9;
+    font-family: "Courier New", monospace !important;
+    font-style: italic;
+    font-size: 0.9em;
+    box-shadow: 0 2px 8px rgba(255, 165, 0, 0.3) !important;
+    animation: cotPulse 2s infinite ease-in-out;
+}
+
+.cot-thinking-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 10px 0;
+    color: #ffa500;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.cot-thinking-dots {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.cot-thinking-dots::after {
+    content: "";
+    animation: cotDots 1.5s infinite;
+}
+
+@keyframes cotPulse {
+    0%,
+    100% {
+        box-shadow: 0 2px 8px rgba(255, 165, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 12px rgba(255, 165, 0, 0.5);
+    }
+}
+
+@keyframes cotDots {
+    0%,
+    20% {
+        content: "";
+    }
+    25%,
+    45% {
+        content: ".";
+    }
+    50%,
+    70% {
+        content: "..";
+    }
+    75%,
+    95% {
+        content: "...";
+    }
+}
+
+/* CoT streaming indicator */
+.cot-streaming-indicator {
+    display: flex;
+    align-items: center;
+    color: #ffa500;
+    font-size: 0.9em;
+    margin: 10px 0;
+    padding: 8px 12px;
+    background-color: rgba(255, 165, 0, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid #ffa500;
+}
+
+.cot-streaming-icon {
+    margin-right: 8px;
+    animation: spin 2s linear infinite;
+}
+
+/* Enhanced CoT message styling for better user experience */
+.chat-messages .cot-message {
+    background: linear-gradient(135deg, #ffa500, #ff8c00);
+    border-left: 4px solid #ff6347;
+    border-radius: 10px;
+    opacity: 0.9;
+    position: relative;
+}
+
+.chat-messages .cot-message::before {
+    content: "🧠 ";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background: #ff6347;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+/* Responsive design for CoT elements */
+@media (max-width: 768px) {
+    .cot-reasoning-bubble {
+        max-width: 100%;
+        font-size: 0.8em;
+        box-sizing: border-box;
+    }
+
+    .cot-streaming-indicator {
+        font-size: 0.8em;
+        padding: 6px 10px;
+        box-sizing: border-box;
+    }
+
+    .main-content-vertical-items {
+        padding: 0px 12px; /* Reduced padding on mobile */
+    }
+}
+
+/* Smooth transitions for CoT states */
+.cot-transition {
+    transition: all 0.3s ease-in-out;
+}

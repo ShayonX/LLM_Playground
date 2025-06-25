@@ -1,0 +1,176 @@
+/* Global styles to prevent unnecessary scrollbars */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden; /* Prevent horizontal scrollbars */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000; /* Keep header above other content */
+    height: 48px; /* Fixed header height */
+}
+
+.leftNav {
+    position: fixed;
+    top: 48px; /* Based on the height of your header */
+    left: 0;
+    z-index: 999; /* Keep left nav just below header but above main content */
+    transition: width 0.3s ease; /* Smooth transition when width changes */
+}
+
+.outer-flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrollbars on main container */
+}
+
+.vertical-items {
+    display: flex;
+    flex-direction: column;
+    margin-top: 48px; /* This is the height of the header */
+    height: calc(100vh - 48px); /* Full height minus header */
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+.horizontal-items {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Prevent horizontal overflow */
+}
+
+.main-content-vertical-items {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 24px; /* Reduced padding to prevent horizontal overflow */
+    flex: 1;
+    overflow: hidden; /* Prevent scrollbars */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.breadcrumbs {
+    flex: 0 0 auto; /* Don't grow or shrink */
+    overflow: hidden; /* Prevent scrollbars */
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.breadcrumbs .main-contents {
+    color: var(--bodybody-text);
+    flex: 1;
+    font-family: "Segoe UI-Bold", Helvetica;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-top: -1px;
+    position: relative;
+}
+
+.welcome-message {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.morgan-meaning h2 {
+    font-size: 20px;
+    color: #0078d4;
+    margin: 8px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.morgan-meaning p {
+    font-size: 18px;
+    color: #333333;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.rendered-img {
+    padding: 24px;
+    flex: 1;
+}
+
+.dashboard {
+    flex: 1;
+    overflow: hidden; /* Prevent scrollbars */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.transitionAnimation {
+    animation: slideFadeIn 300ms forwards;
+}
+
+/* Responsive styles for Home Dashboard */
+@media (max-width: 768px) {
+    .main-content-vertical-items {
+        padding: 0px 12px; /* Reduced padding on mobile */
+    }
+
+    .welcome-message {
+        font-size: 14px;
+    }
+
+    .morgan-meaning h2 {
+        font-size: 18px;
+    }
+
+    .morgan-meaning p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content-vertical-items {
+        padding: 0px 8px; /* Further reduced padding on small mobile */
+    }
+
+    .welcome-message {
+        font-size: 12px;
+    }
+
+    .morgan-meaning h2 {
+        font-size: 16px;
+    }
+
+    .morgan-meaning p {
+        font-size: 14px;
+    }
+}
