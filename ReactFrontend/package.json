@@ -1,0 +1,46 @@
+{
+    "name": "compliance-comms-frontend",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Standalone React frontend for Compliance Communications",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "lint": "eslint . --ext js,jsx,ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "preview": "vite preview",
+        "test": "echo \"No tests specified\" && exit 0"
+    },
+    "dependencies": {
+        "@fluentui/react": "^8.118.0",
+        "@fluentui/react-components": "^9.54.0",
+        "@fluentui/react-icons": "^2.0.258",
+        "@m365-admin/composite-list": "^5.3.4",
+        "@m365-admin/customizations": "^7.7.6",
+        "@m365-admin/empty-state": "^4.4.13",
+        "@m365-admin/m365-breadcrumb": "^2.0.21",
+        "@m365-admin/nav": "^4.5.12",
+        "@m365-admin/wizard": "^5.7.3",
+        "@reduxjs/toolkit": "^1.9.5",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-redux": "^8.1.2",
+        "react-router-dom": "^6.15.0",
+        "remarkable": "^2.0.1",
+        "resize-observer-polyfill": "^1.5.1",
+        "uuid": "^9.0.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.20",
+        "@types/react-dom": "^18.2.7",
+        "@types/remarkable": "^2.0.3",
+        "@types/uuid": "^9.0.2",
+        "@vitejs/plugin-react": "^4.0.3",
+        "eslint": "^8.45.0",
+        "eslint-plugin-react": "^7.32.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.3",
+        "typescript": "^5.7.0-dev.20240821",
+        "vite": "^4.4.5"
+    }
+}
